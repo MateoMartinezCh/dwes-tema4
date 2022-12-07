@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    header('HTTP/1.0 401 Unauthorized');
+    echo "No puedes acceder a esta página, <a href='../index.php'>inicia sesión </a>";
+    exit();
+}
 session_destroy();
 ?>
 <!DOCTYPE html>

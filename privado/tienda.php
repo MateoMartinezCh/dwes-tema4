@@ -31,6 +31,7 @@ if ($_POST && isset($_POST['producto']) && isset($_POST['cantidad'])) {
         if (filter_var($cantidad, FILTER_VALIDATE_INT, $options) == false) {
             echo "<h1>Error: la cantidad debe ser un número entero mayor o igual que 1.</h1>";
         } else {
+            echo "<h1>Se han añadido $cantidad de $prodname</h1>";
             isset($_SESSION['carrito'][$prodname]) ? $_SESSION['carrito'][$prodname] += $cantidad : $_SESSION['carrito'][$prodname] = $cantidad;
         }
     }
